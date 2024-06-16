@@ -1,10 +1,5 @@
 version: 0.2
 
-env:
-  # Replace with your actual AWS region
-  AWS_REGION: "eu-west-2"
-  ECR_REPOSITORY_URI: "637423277250.dkr.ecr.eu-west-2.amazonaws.com/my-restapp-image"
-
 artifacts:
   # Optional: Specify artifacts to upload to S3 bucket after build (e.g., logs)
   files:
