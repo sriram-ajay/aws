@@ -11,10 +11,13 @@ artifacts:
     - build.log
 
 phases:
+
   pre_build:
     commands:
+      - echo "prebuild commands running..."
       - cd microservices/restapp
-      - <your pre-build commands here>
+      - pwd
+      - echo "changed the Directory"
   
   install:
      commands:
