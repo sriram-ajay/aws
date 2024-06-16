@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo "Building Docker image..."
+      - docker build -t my-restapp-image:latest .  # Replace with your desired image name
+      - echo "Pushing Docker image to ECR..."
+      - aws ecr get-login-password --region <your_aws_region> | docker login --username AWS --password-stdin <your_account_id>.dkr.ecr.<your_aws_region>.amazonaws.com
+      - docker push 637423277250.dkr.ecr.eu-west-2.amazonaws.com/my-restapp-image:latest  # Replace with your ECR repository URI
+
+  post_build:
+    commands:
+      - echo "Build completed successfully."
+
