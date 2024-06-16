@@ -12,20 +12,14 @@ artifacts:
 
 phases:
 
-  pre_build:
-    commands:
-      - echo "prebuild commands running..."
-      - cd microservices/restapp
-      - pwd
-      - echo "changed the Directory"
-  
   install:
      commands:
       - echo "Installing dependencies..."
+      - cd microservices/restapp
+      - pwd
+      - echo "changed the Directory"
       - mvn clean install # Replace with your specific Maven commands (consider skipping tests for faster builds)
-
-
-
+      
   build:
     commands:
       - echo "Building Docker image..."
