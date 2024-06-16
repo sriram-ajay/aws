@@ -4,7 +4,6 @@ env:
   # Replace with your actual AWS region
   AWS_REGION: "eu-west-2"
   ECR_REPOSITORY_URI: "637423277250.dkr.ecr.eu-west-2.amazonaws.com/my-restapp-image"
-  
 
 artifacts:
   # Optional: Specify artifacts to upload to S3 bucket after build (e.g., logs)
@@ -12,10 +11,17 @@ artifacts:
     - build.log
 
 phases:
-  install:
+  pre_build:
     commands:
+      - cd microservices/restapp
+      - <your pre-build commands here>
+  
+  install:
+     commands:
       - echo "Installing dependencies..."
       - mvn clean install # Replace with your specific Maven commands (consider skipping tests for faster builds)
+
+
 
   build:
     commands:
