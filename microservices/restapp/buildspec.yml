@@ -28,6 +28,6 @@ phases:
       - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REPOSITORY_URI
         #AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} 
         
-      - echo "ECR Repo URL: $ECR_REPOSITORY_URI"
-      - IMAGE_URI=$(docker push $ECR_REPOSITORY_URI:latest)
+        #echo "ECR Repo URL: $ECR_REPOSITORY_URI"
+        #IMAGE_URI=$(docker push $ECR_REPOSITORY_URI:latest)
       - echo "Image pushed successfully: $IMAGE_URI"
