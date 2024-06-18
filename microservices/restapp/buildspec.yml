@@ -12,14 +12,6 @@ phases:
       - pwd
       - echo "Changed the directory"
       - mvn clean install # Replace with your specific Maven commands
-      
-  pre_build:
-    commands:
-      - echo log in to Amazon ECR...
-      - aws --version
-      - echo $AWS_DEFAULT_REGION
-      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
-      - IMAGE_TAG=${COMMIT_HASH:=latest}
 
   build:
     commands:
@@ -32,12 +24,9 @@ phases:
       - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REPOSITORY_URI
       - echo $ECR_REPOSITORY_URI
       - echo "Tagging the Docker image..."
-      - docker tag restapp:latest $ECR_REPOSITORY_URI:$IMAGE_TAG
+      - docker tag restapp:latest $ECR_REPOSITORY_URI:latest
       - echo "Pushing the Docker image to ECR..."
-      - docker push $ECR_REPOSITORY_URI:$IMAGE_TAG
-      - IMAGE_URI=$ECR_REPOSITORY_URI:$IMAGE_TAG
+      - docker push $ECR_REPOSITORY_URI:latest
+      - IMAGE_URI=$ECR_REPOSITORY_URI:latest
       - echo "Image pushed successfully:"
       - echo $IMAGE_URI
-      - echo write definitions file...
-      # this name should be the same as the container name
-      - printf '[{"name":"restapp-contr-pipeline","imageUri":"%s"}]' $IMAGE_URI > imagedefinitions.json
