@@ -1,8 +1,8 @@
 version: 0.2
 
-artifacts:
-  files:
-    - build.log
+#artifacts:
+ # files:
+  #  - build.log
 
 phases:
   install:
