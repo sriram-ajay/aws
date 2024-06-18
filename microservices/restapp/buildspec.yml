@@ -27,10 +27,9 @@ phases:
       - echo "Image pushed successfully:"
       - echo $IMAGE_URI
       - echo '[{"name":"my-restapp-container","imageUri":"'$IMAGE_URI'"}]' > imagedefinitions.json
-      - echo "Listing directory contents for verification"
-      - ls -al
+      - echo "Listing directory of :::"
+      - pwd
       
 artifacts:
   files:
-    - 'imagedefinitions.json'  # Explicit path
-    - '**/imagedefinitions.json'  # Wildcard path
+    - ''microservices/restapp/imagedefinitions.json'  # Wildcard path
