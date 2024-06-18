@@ -32,4 +32,4 @@ phases:
       
 artifacts:
   files:
-    - ''microservices/restapp/imagedefinitions.json'  # Wildcard path
+    - 'microservices/restapp/imagedefinitions.json'  # Wildcard path
