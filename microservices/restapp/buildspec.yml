@@ -30,3 +30,7 @@ phases:
       - IMAGE_URI=$ECR_REPOSITORY_URI:latest
       - echo "Image pushed successfully:"
       - echo $IMAGE_URI
+      - printf '[{"name":"restapp-contr-pipeline","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json
+      
+  artifacts:
+    files: imagedefinitions.json
