@@ -1,9 +1,5 @@
 version: 0.2
 
-artifacts:
-  files:
-     - imagedefinitions.json
-
 phases:
   install:
     commands:
@@ -33,3 +29,7 @@ phases:
       - echo '[{"name":"my-restapp-container","imageUri":"'$IMAGE_URI'"}]' > imagedefinitions.json
       - echo "Listing directory contents for verification"
       - ls -al
+      
+artifacts:
+  files:
+    - imagedefinitions.json
