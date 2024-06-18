@@ -32,4 +32,5 @@ phases:
       
 artifacts:
   files:
-    - imagedefinitions.json
+    - 'imagedefinitions.json'  # Explicit path
+    - '**/imagedefinitions.json'  # Wildcard path
