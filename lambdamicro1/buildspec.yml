@@ -1,1 +1,18 @@
+version: 0.2
 
+phases:
+  install:
+    commands:
+      - echo "Installing dependencies..."
+      - mvn clean install
+  build:
+    commands:
+      - echo "Building the project..."
+      - mvn package
+  post_build:
+    commands:
+      - echo "Build completed on `date`"
+      - mv target/*.jar target/lambda-function.jar
+artifacts:
+  files:
+    - target/lambda-function.jar
