@@ -161,6 +161,8 @@
                                 <phase>package</phase>
                                 <goals>
                                     <goal>single</goal>
+          		         <goal>clean</goal>
+      				<goal>install</goal>
                                 </goals>
                                 <configuration>
                                     <finalName>${project.artifactId}-${project.version}</finalName>
